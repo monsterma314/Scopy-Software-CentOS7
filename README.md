@@ -112,7 +112,7 @@ For me it was in ~/.cache/Applications:
 
 	  $ rm -rf ~/.cache/Applications # Make sure to get the directory right!!
 
-#Error 2: Scopy opens, buttons work, device is recognized, but calibration fails:
+**Error 2: Scopy opens, buttons work, device is recognized, but calibration fails:**
 
  For me this only happened when I had the ADALM2000 plugged in for too long and
  it heated up beyond its acceptable operating temperature. Unplug and let cool
