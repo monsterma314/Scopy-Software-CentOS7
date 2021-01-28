@@ -5,11 +5,11 @@ This repository contains information on how to install and debug Scopy for CentO
 For the following, you will need the most recent update of the m2k usb driver
 udev rules
 
-Copy and paste the following file into /etc/udev/rules.d/53-adi-m2k-usb.rules (as root):
+Open the proper file for editing as root: /etc/udev/rules.d/53-adi-m2k-usb.rules
 
 	$ sudo vim /etc/udev/rules.d/53-adi-m2k-usb.rules
 
-Append the file:
+Copy and paste the following into this file:
 
 	"# allow "plugdev" group read/write access to ADI M2K devices
 	SUBSYSTEM=="usb", ATTRS{idVendor}=="0456", ATTRS{idProduct}=="b672", MODE="0664", GROUP="plugdev" 
@@ -22,7 +22,7 @@ Remember to put that file into /etc/udev/rules.d/53-adi-m2k-usb.rules (need root
 
 **Step 2: Verify the ADALM2000 is recognized.**
 
-Before doing the following, restart the system to refresh the udev rules!
+Before doing the following, **restart the system** to refresh the udev rules!
 Connect the ADALM2000 via USB to computer. Wait for about 30 seconds since it 
 takes a while to be recognized. It should be automatically mounted. For me the
 device mounts in /run/media/monsterma/M2K. 
@@ -92,6 +92,7 @@ device mounts in /run/media/monsterma/M2K.
 
 Using my scopy.sh script will put errors and warnings from Scopy in error-log.txt for reference. Warning are
 not errors (usually). To read them, navigate to its directory and type:
+
 	$ cat error-log.txt
 
 **Error 1: Qt: Session management error: None of the authentication protocols specified are supported**
@@ -128,17 +129,18 @@ For me it was in ~/.cache/Applications:
   If that does not solve it:
 	  $ sudo yum upgrade libusb
 
-Error 4: Scopy will not recognize ADALM2000 though it is mounted
-	  This happened for me too. Instead of bushwhacking, I took the easy way
-	  out. I read the file config.txt on the ADALM2000 and use the IP address: 192.168.**.*
-	  for the ipadr_host field. It should succeed and then I hit the connect button.
+**Error 4: Scopy will not recognize ADALM2000 though it is mounted**
+
+  This happened for me too. Instead of bushwhacking, I took the easy way
+  out. I read the file config.txt on the ADALM2000 and use the IP address: 192.168.**.*
+  for the ipadr_host field. It should succeed and then I hit the connect button.
 
 
 For reference, my installation folder looks like this:
-/home/monsterma/Software/scopy/ # I installed the m2k drivers in another folder
- ├── error-log.txt
- ├── scopy.sh
- ├── scopy-v1.2.0-Linux.flatpak
- └── scopy-v1.2.0-Linux-flatpak.zip
+	/home/monsterma/Software/scopy/ # I installed the m2k drivers in another folder
+ 	├── error-log.txt
+ 	├── scopy.sh
+ 	├── scopy-v1.2.0-Linux.flatpak
+ 	└── scopy-v1.2.0-Linux-flatpak.zip
 
 
