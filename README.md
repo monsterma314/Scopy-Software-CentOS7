@@ -63,11 +63,12 @@ device mounts in /run/media/monsterma/M2K.
 	 $ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo # Scopy repo
 
 
-**Step 4: Download and extract the .tar.gz source code for Scopy**
-	 The source code is available here: 
-	 My file is called: scopy-v1.2.0-Linux-flatpak.zip
+**Step 4: Download and extract the .zip flatpak file for Scopy (provided by Analog Devices)**
 
-	 $ tar -xvf scopy-v1.2.0-Linux-flatpak.zip # extracts the file scopy-v1.2.0-Linux-flatpak
+ As of 1/28/21 the source code is available here: https://github.com/analogdevicesinc/scopy/releases/tag/v1.2.0
+ My file is called: scopy-v1.2.0-Linux-flatpak.zip
+
+	 $ unzip scopy-v1.2.0-Linux-flatpak.zip # extracts the file scopy-v1.2.0-Linux-flatpak
 
 
 **Step 5: Install Scopy with Flatpak:**
