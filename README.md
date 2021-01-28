@@ -6,6 +6,9 @@ For the following, you will need the most recent update of the m2k usb driver
 udev rules
 
 Copy and paste the following file into /etc/udev/rules.d/53-adi-m2k-usb.rules (as root):
+	$ sudo vim /etc/udev/rules.d/53-adi-m2k-usb.rules
+
+Append the file:
 	"# allow "plugdev" group read/write access to ADI M2K devices
 	SUBSYSTEM=="usb", ATTRS{idVendor}=="0456", ATTRS{idProduct}=="b672", MODE="0664", GROUP="plugdev" 
 	SUBSYSTEM=="usb", ATTRS{idVendor}=="0456", ATTRS{idProduct}=="b675", MODE="0664", GROUP="plugdev"
@@ -102,17 +105,18 @@ if SESSION_MANAGER shows up, then
 	  $ find . -name *[sS]copy* -print # if this command finds it, delete the folder it is in
 
 For me it was in ~/.cache/Applications:
-	  /home/monsterma/.cache
-	  ├── Applications
-	  │   ├── org.adi.Scopy
+	  
+	  /home/monsterma/.cache:
+	  	  ├── Applications
+	  	  │   ├── org.adi.Scopy
 
 	  $ rm -rf ~/.cache/Applications # Make sure to get the directory right!!
 
 Error 2: Scopy opens, buttons work, device is recognized, but calibration fails:
 
-	  For me this only happened when I had the ADALM2000 plugged in for too long and
-	  it heated up beyond its acceptable operating temperature. Unplug and let cool
-	  down. Otherwise, read StackOverflow for hints.
+ For me this only happened when I had the ADALM2000 plugged in for too long and
+ it heated up beyond its acceptable operating temperature. Unplug and let cool
+ down. Otherwise, read StackOverflow for hints.
 
 Error 3: If there is an error about USB connectivity:
 	  Make sure that you have not opened another terminal that is idly running (or trying to run)
