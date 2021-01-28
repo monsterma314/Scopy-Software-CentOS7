@@ -91,7 +91,7 @@ device mounts in /run/media/monsterma/M2K.
 
 	 $ ./scopy.sh
 
-***------------------- TROUBLESHOOTING -------------------***
+#### ***------------------- TROUBLESHOOTING -------------------***
 
 Using my scopy.sh script will put errors and warnings from Scopy in error-log.txt for reference. Warning are
 not errors (usually). To read them, navigate to its directory and type:
