@@ -1,4 +1,4 @@
-This repository contains information on how to install Scopy for CentOS7 x86_64
+This repository contains information on how to install and debug Scopy for CentOS7 x86_64
 
 **Step 1: m2k drivers**
 
@@ -6,9 +6,11 @@ For the following, you will need the most recent update of the m2k usb driver
 udev rules
 
 Copy and paste the following file into /etc/udev/rules.d/53-adi-m2k-usb.rules (as root):
+
 	$ sudo vim /etc/udev/rules.d/53-adi-m2k-usb.rules
 
 Append the file:
+
 	"# allow "plugdev" group read/write access to ADI M2K devices
 	SUBSYSTEM=="usb", ATTRS{idVendor}=="0456", ATTRS{idProduct}=="b672", MODE="0664", GROUP="plugdev" 
 	SUBSYSTEM=="usb", ATTRS{idVendor}=="0456", ATTRS{idProduct}=="b675", MODE="0664", GROUP="plugdev"
@@ -76,7 +78,7 @@ device mounts in /run/media/monsterma/M2K.
 **Step 6: Create proper script to run Scopy (do not run yet)**
 	 
  Copy scopy.sh to the same directory as scopy-v1.2.0-Linux-flatpak (note: the version may be different)
-# Do *not* run this yet:
+ Do *not* run this yet:
 	 $ ./scopy.sh # runs Scopy and unsets SESSION_MANAGER
 
 
@@ -86,7 +88,7 @@ device mounts in /run/media/monsterma/M2K.
 
 	 $ ./scopy.sh
 
-------------------- TROUBLESHOOTING -------------------
+***------------------- TROUBLESHOOTING -------------------***
 
 Using my scopy.sh script will put errors and warnings from Scopy in error-log.txt for reference. Warning are
 not errors (usually). To read them, navigate to its directory and type:
