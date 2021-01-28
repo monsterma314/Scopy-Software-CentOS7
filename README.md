@@ -78,7 +78,9 @@ device mounts in /run/media/monsterma/M2K.
 **Step 6: Create proper script to run Scopy (do not run yet)**
 	 
  Copy scopy.sh to the same directory as scopy-v1.2.0-Linux-flatpak (note: the version may be different)
+
  Do *not* run this yet:
+
 	 $ ./scopy.sh # runs Scopy and unsets SESSION_MANAGER
 
 
@@ -127,6 +129,7 @@ For me it was in ~/.cache/Applications:
 	  Scopy, or the USB I/O will fail and Scopy hangs.
 
   If that does not solve it:
+
 	  $ sudo yum upgrade libusb
 
 **Error 4: Scopy will not recognize ADALM2000 though it is mounted**
@@ -137,7 +140,8 @@ For me it was in ~/.cache/Applications:
 
 
 For reference, my installation folder looks like this:
-	/home/monsterma/Software/scopy/ # I installed the m2k drivers in another folder
+
+	tree /home/monsterma/Software/scopy/ # I installed the m2k drivers in another folder
  	├── error-log.txt
  	├── scopy.sh
  	├── scopy-v1.2.0-Linux.flatpak
