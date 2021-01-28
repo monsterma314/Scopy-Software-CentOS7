@@ -5,13 +5,15 @@ Step 1: m2k drivers
 For the following, you will need the most recent update of the m2k usb driver
 udev rules
 
-	Run the following:
-	$ sudo echo "# allow "plugdev" group read/write access to ADI M2K devices
-SUBSYSTEM=="usb", ATTRS{idVendor}=="0456", ATTRS{idProduct}=="b672", MODE="0664", GROUP="plugdev"
-SUBSYSTEM=="usb", ATTRS{idVendor}=="0456", ATTRS{idProduct}=="b675", MODE="0664", GROUP="plugdev"
-# tell the ModemManager (part of the NetworkManager suite) that the device is not a modem, 
-# and don't send AT commands to it
-SUBSYSTEM=="usb", ATTRS{idVendor}=="0456", ATTRS{idProduct}=="b672", ENV{ID_MM_DEVICE_IGNORE}="1" > /etc/udev/rules.d/53-adi-m2k-usb.rules
+Copy and paste the following file into /etc/udev/rules.d/53-adi-m2k-usb.rules (as root):
+	"# allow "plugdev" group read/write access to ADI M2K devices
+	SUBSYSTEM=="usb", ATTRS{idVendor}=="0456", ATTRS{idProduct}=="b672", MODE="0664", GROUP="plugdev" 
+	SUBSYSTEM=="usb", ATTRS{idVendor}=="0456", ATTRS{idProduct}=="b675", MODE="0664", GROUP="plugdev"
+	# tell the ModemManager (part of the NetworkManager suite) that the device is not a modem, 
+	# and don't send AT commands to it
+	SUBSYSTEM=="usb", ATTRS{idVendor}=="0456", ATTRS{idProduct}=="b672", ENV{ID_MM_DEVICE_IGNORE}="1"
+
+Remember to put that file into /etc/udev/rules.d/53-adi-m2k-usb.rules (need root permissions to edit)
 
 Step 2: Verify the ADALM2000 is recognized.
 
@@ -69,15 +71,14 @@ Step 5: Install Scopy with Flatpak:
 
 
 Step 6: Create proper script to run Scopy (do not run yet)
-	 Copy scopy.sh to the same directory as scopy-v1.2.0-Linux-flatpak
-	 $ ./scopy.sh
-
-	 The reason why unset SESSION_MANAGER is to handle the error:
-	 "Qt: Session management error: None of the authentication protocols specified are supported"
+	 
+ Copy scopy.sh to the same directory as scopy-v1.2.0-Linux-flatpak (note: the version may be different)
+	 $ ./scopy.sh # runs Scopy and unsets SESSION_MANAGER
 
 
 Step 7: Fire up Scopy
-	 Plug in the ADALM2000 first! Wait for the ADALM2000 to appear mounted. Once it does:
+
+ Plug in the ADALM2000 first! Wait for the ADALM2000 to appear mounted (~30 sec). Once it does:
 
 	 $ ./scopy.sh
 
@@ -89,18 +90,18 @@ not errors (usually). To read them, navigate to its directory and type:
 
 Error 1: Qt: Session management error: None of the authentication protocols specified are supported
 
-	  Make sure that you have unset the SESSION_MANAGER variable. To be absolutely certain, run:
+Make sure that you have unset the SESSION_MANAGER variable. To be absolutely certain, run:
 	  $ export -p
-	  if it shows up, then
+if SESSION_MANAGER shows up, then
 	  $ export -n SESSION_MANAGER
 
-	  If that still does not solve the problem (like for me) then you should beware of cached data. You will
-	  have to visit ~/.cache/ and look for scopy (mine was in the Applications folder)
+ If that still does not solve the problem (like for me) then you should beware of cached data. You will
+ have to visit ~/.cache/ and look for scopy (mine was in the Applications folder)
 
 	  $ cd ~/.cache
 	  $ find . -name *[sS]copy* -print # if this command finds it, delete the folder it is in
 
-	  For me it was in ~/.cache/Applications:
+For me it was in ~/.cache/Applications:
 	  /home/monsterma/.cache
 	  ├── Applications
 	  │   ├── org.adi.Scopy
