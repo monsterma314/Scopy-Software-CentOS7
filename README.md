@@ -1,6 +1,6 @@
 This repository contains information on how to install Scopy for CentOS7 x86_64
 
-Step 1: m2k drivers
+**Step 1: m2k drivers**
 
 For the following, you will need the most recent update of the m2k usb driver
 udev rules
@@ -18,7 +18,7 @@ Append the file:
 
 Remember to put that file into /etc/udev/rules.d/53-adi-m2k-usb.rules (need root permissions to edit)
 
-Step 2: Verify the ADALM2000 is recognized.
+**Step 2: Verify the ADALM2000 is recognized.**
 
 Before doing the following, restart the system to refresh the udev rules!
 Connect the ADALM2000 via USB to computer. Wait for about 30 seconds since it 
@@ -54,32 +54,33 @@ device mounts in /run/media/monsterma/M2K.
 1 directory, 23 files
 
 
-Step 3: Install Flatpak package manager (or update it)
+**Step 3: Install Flatpak package manager (or update it)**
 
 	 Run the following:
 	 $ sudo yum install flatpak 
 	 $ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo # Scopy repo
 
 
-Step 4: Download and extract the .tar.gz source code for Scopy
+**Step 4: Download and extract the .tar.gz source code for Scopy**
 	 The source code is available here: 
 	 My file is called: scopy-v1.2.0-Linux-flatpak.zip
 
 	 $ tar -xvf scopy-v1.2.0-Linux-flatpak.zip # extracts the file scopy-v1.2.0-Linux-flatpak
 
 
-Step 5: Install Scopy with Flatpak:
+**Step 5: Install Scopy with Flatpak:**
 
 	 $ flatpak install scopy-v1.2.0-Linux-flatpak
 
 
-Step 6: Create proper script to run Scopy (do not run yet)
+**Step 6: Create proper script to run Scopy (do not run yet)**
 	 
  Copy scopy.sh to the same directory as scopy-v1.2.0-Linux-flatpak (note: the version may be different)
+# Do *not* run this yet:
 	 $ ./scopy.sh # runs Scopy and unsets SESSION_MANAGER
 
 
-Step 7: Fire up Scopy
+**Step 7: Fire up Scopy**
 
  Plug in the ADALM2000 first! Wait for the ADALM2000 to appear mounted (~30 sec). Once it does:
 
@@ -91,7 +92,7 @@ Using my scopy.sh script will put errors and warnings from Scopy in error-log.tx
 not errors (usually). To read them, navigate to its directory and type:
 	$ cat error-log.txt
 
-Error 1: Qt: Session management error: None of the authentication protocols specified are supported
+**Error 1: Qt: Session management error: None of the authentication protocols specified are supported**
 
 Make sure that you have unset the SESSION_MANAGER variable. To be absolutely certain, run:
 	  $ export -p
@@ -118,11 +119,11 @@ For me it was in ~/.cache/Applications:
  it heated up beyond its acceptable operating temperature. Unplug and let cool
  down. Otherwise, read StackOverflow for hints.
 
-Error 3: If there is an error about USB connectivity:
+**Error 3: If there is an error about USB connectivity:**
 	  Make sure that you have not opened another terminal that is idly running (or trying to run)
 	  Scopy, or the USB I/O will fail and Scopy hangs.
 
-	  If that does not solve it:
+  If that does not solve it:
 	  $ sudo yum upgrade libusb
 
 Error 4: Scopy will not recognize ADALM2000 though it is mounted
