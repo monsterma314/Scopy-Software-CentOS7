@@ -1,0 +1,27 @@
+Warning: Using function expressions as statements in scripts is not compliant with the ECMAScript specification:
+ "function(o) { for (each in o) { print(each); } }..." 
+This will throw a syntax error in Qt 5.12. If you want a function expression, surround it by parentheses.
+QLayout: Attempting to add QLayout "" to adiscope::logic::LogicAnalyzer "LogicAnalyzer", which already has a layout
+QLayout: Attempting to add QLayout "" to adiscope::logic::LogicAnalyzer "LogicAnalyzer", which already has a layout
+QLayout: Attempting to add QLayout "" to adiscope::logic::LogicAnalyzer "LogicAnalyzer", which already has a layout
+QLayout: Attempting to add QLayout "" to adiscope::logic::LogicAnalyzer "LogicAnalyzer", which already has a layout
+QLayout: Attempting to add QLayout "" to adiscope::logic::LogicAnalyzer "LogicAnalyzer", which already has a layout
+QLayout: Attempting to add QLayout "" to adiscope::logic::LogicAnalyzer "LogicAnalyzer", which already has a layout
+QLayout: Attempting to add QLayout "" to adiscope::logic::LogicAnalyzer "LogicAnalyzer", which already has a layout
+QLayout: Attempting to add QLayout "" to adiscope::logic::LogicAnalyzer "LogicAnalyzer", which already has a layout
+QLayout: Attempting to add QLayout "" to adiscope::logic::LogicAnalyzer "LogicAnalyzer", which already has a layout
+QLayout: Attempting to add QLayout "" to adiscope::logic::LogicAnalyzer "LogicAnalyzer", which already has a layout
+QLayout: Attempting to add QLayout "" to adiscope::logic::LogicAnalyzer "LogicAnalyzer", which already has a layout
+QLayout: Attempting to add QLayout "" to adiscope::logic::LogicAnalyzer "LogicAnalyzer", which already has a layout
+QLayout: Attempting to add QLayout "" to adiscope::logic::LogicAnalyzer "LogicAnalyzer", which already has a layout
+QLayout: Attempting to add QLayout "" to adiscope::logic::LogicAnalyzer "LogicAnalyzer", which already has a layout
+QLayout: Attempting to add QLayout "" to adiscope::logic::LogicAnalyzer "LogicAnalyzer", which already has a layout
+QLayout: Attempting to add QLayout "" to adiscope::logic::LogicAnalyzer "LogicAnalyzer", which already has a layout
+QMetaObject::connectSlotsByName: No matching signal for on_xyLineThickness_currentIndexChanged(int)
+QMetaObject::connectSlotsByName: No matching signal for on_xyPlotLineType_toggled(bool)
+QMetaObject::connectSlotsByName: No matching signal for on_nextButton_clicked()
+QMetaObject::connectSlotsByName: No matching signal for on_restartButton_clicked()
+QMetaObject::connectSlotsByName: No matching signal for on_finishButton_clicked()
+QCssParser::parseColorValue: Specified color with alpha value but no alpha given: 'rgba 25, 25, 25'
+QCssParser::parseColorValue: Specified color with alpha value but no alpha given: 'rgba 74, 100, 255'
+QCssParser::parseColorValue: Specified color with alpha value but no alpha given: 'rgba 55, 55, 64'
