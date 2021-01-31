@@ -140,6 +140,18 @@ For me it was in ~/.cache/Applications:
   for the ipadr_host field. It should succeed and then I hit the connect button.
 
 
+**Error 5: Scopy does not allow button clicks at all**
+
+This turned out to be fixed when I did the following:
+	 - Do not use a USB extender (or a USB port on a dock)
+	 - Do NOT have any other terminal sessions that might be trying to run Scopy
+	   in the background. To guarantee this, close all terminals
+	 - Wait at LEAST a minute after the ADALM2000 is mounted (might be some
+	   part of the libusb that takes a really long time to get set up and then
+	   Scopy gets confused by this behavior
+	 - Run scopy through the terminal directly (./scopy.sh)
+
+
 For reference, my installation folder looks like this:
 
 	tree /home/monsterma/Software/scopy/ # I installed the m2k drivers in another folder
